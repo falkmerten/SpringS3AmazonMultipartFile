@@ -1,0 +1,43 @@
+2017-11-11 23:59:00.139  INFO 6924 --- [main] m.SpringS3AmazonMultipartFileApplication : Starting SpringS3AmazonMultipartFileApplication on BOL-MUC-NB003 with PID 6924 (D:\Projekte\SpringS3AmazonMultipartFile\target\classes started by MertenF in D:\Projekte\SpringS3AmazonMultipartFile)
+2017-11-11 23:59:00.144  INFO 6924 --- [main] m.SpringS3AmazonMultipartFileApplication : No active profile set, falling back to default profiles: default
+2017-11-11 23:59:00.298  INFO 6924 --- [main] s.c.a.AnnotationConfigApplicationContext : Refreshing org.springframework.context.annotation.AnnotationConfigApplicationContext@358ee631: startup date [Sat Nov 11 23:59:00 CET 2017]; root of context hierarchy
+2017-11-11 23:59:14.082 ERROR 6924 --- [main] c.j.s3.multipartfile.config.S3Config     : Unable to upload file, upload was aborted, reason: The AWS Access Key Id you provided does not exist in our records. (Service: Amazon S3; Status Code: 403; Error Code: InvalidAccessKeyId; Request ID: ECC60AFF9A66F7BD)
+2017-11-11 23:59:14.387  INFO 6924 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2017-11-11 23:59:14.430  INFO 6924 --- [main] c.j.s.m.services.impl.S3ServicesImpl     : Unable to calculate MD5 hash: C:\s3\upload\upload-multipart-file-to-amazon-s3.rar (Das System kann den angegebenen Pfad nicht finden)
+2017-11-11 23:59:14.593  INFO 6924 --- [main] utoConfigurationReportLoggingInitializer : 
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2017-11-11 23:59:14.611 ERROR 6924 --- [main] o.s.boot.SpringApplication               : Application startup failed
+
+java.lang.IllegalStateException: Failed to execute CommandLineRunner
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:735)
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:716)
+	at org.springframework.boot.SpringApplication.afterRefresh(SpringApplication.java:703)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:304)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107)
+	at com.javasampleapproach.s3.multipartfile.SpringS3AmazonMultipartFileApplication.main(SpringS3AmazonMultipartFileApplication.java:29)
+Caused by: com.amazonaws.services.s3.model.AmazonS3Exception: Forbidden (Service: Amazon S3; Status Code: 403; Error Code: 403 Forbidden; Request ID: 43A503C5D80ADB2B)
+	at com.amazonaws.http.AmazonHttpClient$RequestExecutor.handleErrorResponse(AmazonHttpClient.java:1588)
+	at com.amazonaws.http.AmazonHttpClient$RequestExecutor.executeOneRequest(AmazonHttpClient.java:1258)
+	at com.amazonaws.http.AmazonHttpClient$RequestExecutor.executeHelper(AmazonHttpClient.java:1030)
+	at com.amazonaws.http.AmazonHttpClient$RequestExecutor.doExecute(AmazonHttpClient.java:742)
+	at com.amazonaws.http.AmazonHttpClient$RequestExecutor.executeWithTimer(AmazonHttpClient.java:716)
+	at com.amazonaws.http.AmazonHttpClient$RequestExecutor.execute(AmazonHttpClient.java:699)
+	at com.amazonaws.http.AmazonHttpClient$RequestExecutor.access$500(AmazonHttpClient.java:667)
+	at com.amazonaws.http.AmazonHttpClient$RequestExecutionBuilderImpl.execute(AmazonHttpClient.java:649)
+	at com.amazonaws.http.AmazonHttpClient.execute(AmazonHttpClient.java:513)
+	at com.amazonaws.services.s3.AmazonS3Client.invoke(AmazonS3Client.java:4187)
+	at com.amazonaws.services.s3.AmazonS3Client.invoke(AmazonS3Client.java:4134)
+	at com.amazonaws.services.s3.AmazonS3Client.getObjectMetadata(AmazonS3Client.java:1257)
+	at com.amazonaws.services.s3.transfer.TransferManager.doDownload(TransferManager.java:1052)
+	at com.amazonaws.services.s3.transfer.TransferManager.doDownload(TransferManager.java:1006)
+	at com.amazonaws.services.s3.transfer.TransferManager.download(TransferManager.java:844)
+	at com.amazonaws.services.s3.transfer.TransferManager.download(TransferManager.java:800)
+	at com.javasampleapproach.s3.multipartfile.services.impl.S3ServicesImpl.downloadFile(S3ServicesImpl.java:79)
+	at com.javasampleapproach.s3.multipartfile.SpringS3AmazonMultipartFileApplication.run(SpringS3AmazonMultipartFileApplication.java:38)
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:732)
+	... 6 common frames omitted
+
+2017-11-11 23:59:14.617  INFO 6924 --- [main] s.c.a.AnnotationConfigApplicationContext : Closing org.springframework.context.annotation.AnnotationConfigApplicationContext@358ee631: startup date [Sat Nov 11 23:59:00 CET 2017]; root of context hierarchy
+2017-11-11 23:59:14.622  INFO 6924 --- [main] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
